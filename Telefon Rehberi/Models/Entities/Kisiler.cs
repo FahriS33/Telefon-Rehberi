@@ -17,7 +17,7 @@ namespace Telefon_Rehberi.Models.Entities
 
         public int İletisimId { get; set; }
 
-        public İletisim konum {  get; set; }
+        public İletisim Konum {  get; set; }
 
 
 

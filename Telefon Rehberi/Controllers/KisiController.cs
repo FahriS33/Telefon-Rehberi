@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Telefon_Rehberi.Models.Context;
 using Telefon_Rehberi.Models.Entities;
+using Telefon_Rehberi.Models.KisiModel;
 
 namespace Telefon_Rehberi.Controllers
 {
     public class KisiController : Controller
     {
-        TelefonRehberiContext db =new TelefonRehberiContext();
+        TelefonRehberiContext db = new TelefonRehberiContext();
         public ActionResult Index()
         {
             return View();
@@ -16,8 +17,13 @@ namespace Telefon_Rehberi.Controllers
         public ActionResult Ekle()
         {
 
+            var model = new KisiEkleModelView {
 
-            return View();
+                Kisi = new Kisiler(),
+                Sehir =db.iletisimbil.ToList()
+
+            };
+            return View(model);
         }
 
         [HttpPost]
