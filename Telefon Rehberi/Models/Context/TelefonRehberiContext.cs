@@ -9,7 +9,7 @@ namespace Telefon_Rehberi.Models.Context
 {
     public class TelefonRehberiContext:DbContext
     {
-        public TelefonRehberiContext() : base("server=.;Database=TelefonRehberDB;Trusted_Connection=true")
+        public TelefonRehberiContext() : base("server=FAHRI\\SQLEXPRESS;Database=TelefonRehberDB;Trusted_Connection=true")
         {
 
         }
