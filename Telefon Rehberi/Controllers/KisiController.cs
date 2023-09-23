@@ -10,7 +10,14 @@ namespace Telefon_Rehberi.Controllers
         TelefonRehberiContext db = new TelefonRehberiContext();
         public ActionResult Index()
         {
-            return View();
+         
+
+            var model = new KisiIndexmodelview
+            {
+                kisiler = db.Kisiler.ToList(),
+                Sehirler = db.iletisimbil.ToList()
+            };
+            return View(model);
         }
 
         [HttpGet]
