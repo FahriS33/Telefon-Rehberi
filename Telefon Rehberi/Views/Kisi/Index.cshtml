@@ -15,6 +15,8 @@
         <th>Telefon</th>
         <th>E-mail Adresi</th>
         <th>Şehir</th>
+        <th>İşlemler</th>
+
     </tr>
     @foreach(var kisi in Model.kisiler)
     {
@@ -25,6 +27,7 @@
             <td>@kisi.Telefon</td>
             <td>@kisi.Email</td>
             <td>@kisi.Konum.Konum</td>
+            <td><a href="/kisi/Guncelle/@kisi.Id">Düzenle</a></td>
         </tr>
     }
 
