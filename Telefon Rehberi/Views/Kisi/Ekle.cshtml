@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Ekle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,29 +7,50 @@
 
 <form class="form-horizontal" method="post" action="/Kisi/Ekle/">
     <div class-"form-group">
-        <label>Ad</label>
-        <input type-"text" class-"form-control" name="Ad"/>
+        @* <label>Ad</label> *@
+        @Html.Label("Ad")
+        @* <input type-"text" class-"form-control" name="Ad"/> *@
+        @Html.TextBox("Ad",null,new{ @class="form-control"})
     </div>
 
     <div class-"form-group">
-        <label>Soyad</label>
-        <input type-"text" class-"form-control" name="Soyad" />
+        @* <label>Soyad</label>
+        <input type-"text" class-"form-control" name="Soyad" /> *@
+        @Html.Label("Soyad")
+        @Html.TextBox("Soyad",null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
-        <label>Firma</label>
-        <input type-"text" class-"form-control" name="Firma" />
-    </div>
-     <div class-"form-group">
-        <label>Telefon</label>
-        <input type-"text" class-"form-control" name="Telefon"/>
+        @*  <label>Firma</label>
+        <input type-"text" class-"form-control" name="Firma" /> *@
+        @Html.Label("Firma")
+        @Html.TextBox("Firma",null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
-        <label>Email</label>
-        <input type-"text" class-"form-control" name="Email" />
+        @* <label>Telefon</label>
+        <input type-"text" class-"form-control" name="Telefon"/> *@
+        @Html.Label("Telefon")
+        @Html.TextBox("Telefon",null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
-        <label>Konum</label>
-        <input type-"text" class-"form-control" name="konum" />
+        @*  <label>Email</label>
+        <input type-"text" class-"form-control" name="Email" /> *@
+        @Html.Label("Email")
+        @Html.TextBox("Email",null,new{ @class="form-control"})
+    </div>
+    <div class-"form-group">
+        @* <label>Konum</label>
+        <input type-"text" class-"form-control" name="Konum" /> *@
+        @Html.Label("Konum")
+        @Html.TextBox("Konum",null,new{ @class="form-control"})
+    </div>
+    <div class="form-group">
+        <select class="form-control" name="İletisimId">
+            <option value="1">Adana</option>
+            <option value="2">Adıyaman</option>
+            <option value="3">Sivas</option>
+            <option value="4">Bursa</option>
+
+        </select>
     </div>
 
     <input type="submit" class="btn btn-primary" value="kaydet" />
