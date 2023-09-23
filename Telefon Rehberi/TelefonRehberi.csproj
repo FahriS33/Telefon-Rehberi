@@ -9,7 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Kisiler\" />
   </ItemGroup>
 
 </Project>

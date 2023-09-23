@@ -12,8 +12,6 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        TelefonN = c.String(),
-                        Email = c.String(),
                         Konum = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -26,6 +24,8 @@
                         Ad = c.String(),
                         Soyad = c.String(),
                         Firma = c.String(),
+                        Telefon = c.String(),
+                        Email = c.String(),
                         İletisimId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)

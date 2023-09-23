@@ -1,4 +1,5 @@
-﻿namespace Telefon_Rehberi.Models.Entities
+﻿
+namespace Telefon_Rehberi.Models.Entities
 {
     public class Kisiler
     {
@@ -9,6 +10,10 @@
         public string Soyad { get; set; }
 
         public string Firma { get; set; }
+
+        public string Telefon { get; set; }
+
+        public string Email { get; set; }
 
         public int İletisimId { get; set; }
 
