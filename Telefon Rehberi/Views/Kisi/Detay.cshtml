@@ -1,0 +1,23 @@
+﻿@model Telefon_Rehberi.Models.KisiModel.KisiDetayModelView
+@{
+    ViewData["Title"] = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Kisi.Ad @Model.Kisi.Soyad İletişim Bilgileri</h1>
+
+<br />
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(x=>x.Kisi.Telefon)</dt>
+    <dd>@Model.Kisi.Telefon</dd>
+
+    <dt>@Html.DisplayNameFor(x=>x.Kisi.Email)</dt>
+    <dd>@Model.Kisi.Email</dd>
+
+    <dt>@Html.DisplayNameFor(x=>x.Kisi.İletisimId)</dt>
+    <dd>@Model.Kisi.Konum.Konum</dd>
+
+
+</dl>
+

@@ -101,5 +101,19 @@ namespace Telefon_Rehberi.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult Detay(int id)
+        {
+            var kisi=db.Kisiler.Find(id);
+            if (kisi == null) { 
+                TempData["basarisiz"] = "Kayıt Bulunamadı!";
+                return RedirectToAction("Index");
+            }
+            var model = new KisiDetayModelView { 
+            Kisi = kisi,
+            Sehirler = db.iletisimbil.ToList()
+            };
+            return View(model);
+        }
     }
 }

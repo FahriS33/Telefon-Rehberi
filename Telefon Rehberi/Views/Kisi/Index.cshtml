@@ -12,9 +12,9 @@
         <th>Ad</th>
         <th>Soyad</th>
         <th>Firma</th>
-        <th>Telefon</th>
+        @* <th>Telefon</th>
         <th>E-mail Adresi</th>
-        <th>Şehir</th>
+        <th>Şehir</th> *@
         <th>İşlemler</th>
 
     </tr>
@@ -24,11 +24,12 @@
             <td>@kisi.Ad</td>
             <td>@kisi.Soyad</td>
             <td>@kisi.Firma</td>
-            <td>@kisi.Telefon</td>
+            @* <td>@kisi.Telefon</td>
             <td>@kisi.Email</td>
-            <td>@kisi.Konum.Konum</td>
+            <td>@kisi.Konum.Konum</td> *@
             <td>@* <a href="/kisi/Guncelle/@kisi.Id">Düzenle</a> *@
-                @Html.ActionLink("Düzenle","Guncelle",new {id=kisi.Id})
+                @Html.ActionLink("Düzenle","Guncelle",new {id=kisi.Id}) | 
+                @Html.ActionLink("Detay","Detay",new{id =kisi.Id})
             </td>
         </tr>
     }
