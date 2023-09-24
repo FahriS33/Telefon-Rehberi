@@ -28,10 +28,10 @@
             <td>@kisi.Email</td>
             <td>@kisi.Konum.Konum</td> *@
             <td>@* <a href="/kisi/Guncelle/@kisi.Id">Düzenle</a> *@
-                @Html.ActionLink("Düzenle","Guncelle",new {id=kisi.Id}) | 
-                @Html.ActionLink("Detay","Detay",new{id =kisi.Id})
+                @Html.ActionLink("Düzenle","Guncelle",new {id=kisi.Id}) |
+                @Html.ActionLink("Detay","Detay",new{id =kisi.Id}) | @Html.ActionLink("Sil","Sil", new {id=kisi.Id},new {onclick="return confirm('Kaydı Silmek İstiyor musun?');"})
             </td>
-        </tr>
+        </tr>   
     }
 
 </table>

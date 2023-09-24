@@ -115,5 +115,18 @@ namespace Telefon_Rehberi.Controllers
             };
             return View(model);
         }
+        public ActionResult Sil(int id)
+        {
+            var kisi = db.Kisiler.Find(id);
+            if (kisi == null)
+            {
+                TempData["basarisiz"] = "Kayıt Bulunamadı!";
+                return RedirectToAction("Index");
+            }
+            db.Kisiler.Remove(kisi);
+            db.SaveChanges();
+            TempData["basarili"] = "Kayıt Silme İşlemi Başarılı!";
+            return RedirectToAction("Index");
+        }
     }
 }
