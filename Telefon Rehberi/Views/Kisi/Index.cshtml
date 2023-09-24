@@ -27,7 +27,9 @@
             <td>@kisi.Telefon</td>
             <td>@kisi.Email</td>
             <td>@kisi.Konum.Konum</td>
-            <td><a href="/kisi/Guncelle/@kisi.Id">Düzenle</a></td>
+            <td>@* <a href="/kisi/Guncelle/@kisi.Id">Düzenle</a> *@
+                @Html.ActionLink("Düzenle","Guncelle",new {id=kisi.Id})
+            </td>
         </tr>
     }
 

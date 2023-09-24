@@ -66,9 +66,15 @@ namespace Telefon_Rehberi.Controllers
                 return RedirectToAction("Index");
             }
 
+            var model = new KisiGuncelleModelView{ 
+                Kisi = kisi,
+                Sehirler = db.iletisimbil.ToList()
+            
+            };
+
             ViewBag.Sehirler = new SelectList(db.iletisimbil.ToList(), "Id", "Konum");
 
-            return (View(kisi));
+            return (View(model));
 
         }
         [HttpPost]

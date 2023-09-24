@@ -1,4 +1,4 @@
-﻿@model Telefon_Rehberi.Models.Entities.Kisiler
+﻿@model Telefon_Rehberi.Models.KisiModel.KisiGuncelleModelView
 @{
     ViewData["Title"] = "Guncelle";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,43 +6,50 @@
 
 <h1>Kişi Düzenle</h1>
 
-<form class="form-horizontal" method="post" action="/Kisi/Guncelle/">
-    @Html.HiddenFor(x=>x.Id)
+@* <form class="form-horizontal" method="post" action="/Kisi/Guncelle/"> *@
+
+    @using (Html.BeginForm("Guncelle","Kisi",FormMethod.Post,new{@class="form-horizontal"}))
+    {
+        
+    
+    @Html.HiddenFor(x=>x.Kisi.Id)
     <div class-"form-group">
 
-        @Html.LabelFor(x=>x.Ad)
-        @Html.TextBoxFor(x=>x.Ad,null,new{ @class="form-control"})
+    @Html.HiddenFor(x=>x.Kisi.Id)
+        @Html.LabelFor(x=>x.Kisi.Ad)
+        @Html.TextBoxFor(x=>x.Kisi.Ad,null,new{ @class="form-control"})
     </div>
 
     <div class-"form-group">
 
-        @Html.LabelFor(x=>x.Soyad)
-        @Html.TextBoxFor(x=>x.Soyad,null,new{ @class="form-control"})
+        @Html.LabelFor(x=>x.Kisi.Soyad)
+        @Html.TextBoxFor(x=>x.Kisi.Soyad,null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
 
-        @Html.LabelFor(x=>x.Firma)
-        @Html.TextBoxFor(x=>x.Firma,null,new{ @class="form-control"})
+        @Html.LabelFor(x=>x.Kisi.Firma)
+        @Html.TextBoxFor(x=>x.Kisi.Firma,null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
 
-        @Html.LabelFor(x=>x.Telefon)
-        @Html.TextBoxFor(x=>x.Telefon,null,new{ @class="form-control"})
+        @Html.LabelFor(x=>x.Kisi.Telefon)
+        @Html.TextBoxFor(x=>x.Kisi.Telefon,null,new{ @class="form-control"})
     </div>
     <div class-"form-group">
 
-        @Html.LabelFor(x=>x.Email)
-        @Html.TextBoxFor(x=>x.Email,null,new{ @class="form-control"})
+        @Html.LabelFor(x=>x.Kisi.Email)
+        @Html.TextBoxFor(x=>x.Kisi.Email,null,new{ @class="form-control"})
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(x=>x.İletisimId)
-        @Html.DropDownListFor(x=>x.İletisimId, ViewBag.Sehirler as SelectList, new{ @class= "form-control"})
-
+        @Html.LabelFor(x=>x.Kisi.İletisimId)
+        @* @Html.DropDownListFor(x=>x.Kisi.İletisimId, ViewBag.Sehirler as SelectList, new{ @class= "form-control"}) *@
+        @Html.DropDownListFor(x=>x.Kisi.İletisimId, new SelectList(Model.Sehirler,"Id","Konum"),new{ @class= "form-control"})
     </div>
 
 
     <input type="submit" class="btn btn-primary" value="Güncelle" />
 
-</form>
+@* </form> *@
 
+}
