@@ -1,0 +1,27 @@
+﻿@model Telefon_Rehberi.Models.KisiModel.KisiRaporModelView
+@{
+    ViewData["Title"] = "Rapor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Rapor</h1>
+
+<br />
+<table class="table">
+    
+    @foreach (var sehir in Model.Sehirler)
+    {
+        <tr>
+            <td>@sehir.Konum</td>
+            <td>@sehir.Konum.Count()</td>
+            
+            <td></td>
+        </tr>
+
+        
+    }
+</table>
+
+
+
+

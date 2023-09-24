@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data.Entity;
 using System.Security.Cryptography.X509Certificates;
 using Telefon_Rehberi.Models.Context;
 using Telefon_Rehberi.Models.Entities;
@@ -66,10 +67,11 @@ namespace Telefon_Rehberi.Controllers
                 return RedirectToAction("Index");
             }
 
-            var model = new KisiGuncelleModelView{ 
+            var model = new KisiGuncelleModelView
+            {
                 Kisi = kisi,
                 Sehirler = db.iletisimbil.ToList()
-            
+
             };
 
             ViewBag.Sehirler = new SelectList(db.iletisimbil.ToList(), "Id", "Konum");
@@ -82,7 +84,7 @@ namespace Telefon_Rehberi.Controllers
         {
             var eskikisibilgi = db.Kisiler.Find(kisi.Id);
 
-            if(eskikisibilgi== null)
+            if (eskikisibilgi == null)
             {
                 TempData["basarisiz"] = "Kayıt Bulunamadı!";
                 return RedirectToAction("Index");
@@ -104,14 +106,16 @@ namespace Telefon_Rehberi.Controllers
         [HttpGet]
         public ActionResult Detay(int id)
         {
-            var kisi=db.Kisiler.Find(id);
-            if (kisi == null) { 
+            var kisi = db.Kisiler.Find(id);
+            if (kisi == null)
+            {
                 TempData["basarisiz"] = "Kayıt Bulunamadı!";
                 return RedirectToAction("Index");
             }
-            var model = new KisiDetayModelView { 
-            Kisi = kisi,
-            Sehirler = db.iletisimbil.ToList()
+            var model = new KisiDetayModelView
+            {
+                Kisi = kisi,
+                Sehirler = db.iletisimbil.ToList()
             };
             return View(model);
         }
@@ -128,5 +132,24 @@ namespace Telefon_Rehberi.Controllers
             TempData["basarili"] = "Kayıt Silme İşlemi Başarılı!";
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Rapor()
+        {
+
+            var sehirler = db.Kisiler
+            .GroupBy(k => k.İletisimId)
+            .Select(g => new { Sehir = g.Key, KullaniciSayisi = g.Count() })
+            .OrderByDescending(g => g.KullaniciSayisi)
+            .ToList();
+            var model = new KisiRaporModelView
+            {
+                Sehirler = sehirler
+            };
+            return View(model);
+        }
+
+
+
     }
 }

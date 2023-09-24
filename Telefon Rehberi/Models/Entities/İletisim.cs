@@ -10,5 +10,11 @@ namespace Telefon_Rehberi.Models.Entities
         public int Id { get; set; }
 
         public string Konum { get; set; }
+
+        
+
+        
     }
+
+
 }
